@@ -10,8 +10,8 @@ const users = [
     },
     {
         id: 2,
-        firstName: "Mahi",
-        lastName: "Falak",
+        firstName: "Honey",
+        lastName: "Singh",
         hobby: "being nice"
     },
     {
@@ -78,7 +78,8 @@ app.get("/users/:id", (req, res) => {
 app.post("/user", validationIncoming, (req, res) => {
     // we will save the user
     // res.send("User saved successfully...")
-    let {id, firstName, lastName, hobby} = req.body;
+    let {firstName, lastName, hobby} = req.body;
+    let id = Date.now();
     let newUser = {id, firstName, lastName, hobby};
     users.push(newUser)
     res.status(201).send(newUser)
